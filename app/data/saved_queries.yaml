@@ -37,6 +37,18 @@ queries:
     y:
     - TotalQuantitySold
     pinned: false
+  - name: Chart 4
+    type: bar
+    x: ProductID
+    y:
+    - TotalQuantitySold
+    pinned: false
+  - name: Chart 5
+    type: bar
+    x: ProductID
+    y:
+    - TotalQuantitySold
+    pinned: false
   id: fb26dc9f7b364de39e8ea228aa4a2a0b
   created_at: 1783886149.3669462
-  updated_at: 1783886622.510397
+  updated_at: 1783887316.2442815
