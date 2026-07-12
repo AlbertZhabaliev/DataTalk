@@ -281,15 +281,15 @@ def init_frontend(app):
                 with ui.column().classes("flex-1 overflow-hidden p-2") as main_col:
                     for name in ["ask", "browse", "saved", "dashboard", "settings"]:
                         v = ui.column().classes("w-full")
-                        v.style("flex: 1; min-height: 0; width: 100%")
+                        v.style("flex: 1; min-height: 0; width: 100%; overflow: hidden;")
                         v.set_visibility(False)
                         views[name] = v
 
                     # Pre-create the persistent containers in the synchronous page
                     # context so background tasks can populate them via `with c:`.
                     with views["browse"]:
-                        with ui.row().style("flex: 1; min-height: 0; width: 100%"):
-                            with ui.column().style("width: 320px; min-height: 0; display: flex; flex-direction: column; padding: 8px; border-right: 1px solid #ccc"):
+                        with ui.row().style("flex: 1; min-height: 0; width: 100%; overflow: hidden;"):
+                            with ui.column().style("width: 320px; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding: 8px; border-right: 1px solid #ccc"):
                                 browse_search = ui.input("Search tables…",
                                     on_change=lambda e: (state.get("browse_search_cb") or _noop)(e),
                                 ).classes("w-full shrink-0")
@@ -303,7 +303,7 @@ def init_frontend(app):
                                     "text-gray-500"
                                 )
                     with views["saved"]:
-                        with ui.row().style("flex: 1; min-height: 0; width: 100%"):
+                        with ui.row().style("flex: 1; min-height: 0; width: 100%; overflow: hidden;"):
                             saved_list_box = ui.column().style("width: 320px; min-height: 0; overflow-y: auto; padding: 8px; border-right: 1px solid #ccc")
                             saved_detail = ui.column().style("flex: 1; min-height: 0; overflow-y: auto; padding: 8px")
                     with views["dashboard"]:
