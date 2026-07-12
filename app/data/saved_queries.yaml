@@ -1,0 +1,42 @@
+queries:
+- name: Top 5 Best-Selling Products by Quantity
+  db: SQLEXPRESS
+  question: What are our top 5 best-selling products based on total quantity sold,
+    and what subcategory do they belong to
+  sql: "SELECT TOP 5\n    p.ProductID,\n    p.Name AS ProductName,\n    ps.Name AS\
+    \ SubcategoryName,\n    SUM(sod.OrderQty) AS TotalQuantitySold\nFROM Sales.SalesOrderDetail\
+    \ sod\nJOIN Production.Product p\n    ON sod.ProductID = p.ProductID\nLEFT JOIN\
+    \ Production.ProductSubcategory ps\n    ON p.ProductSubcategoryID = ps.ProductSubcategoryID\n\
+    GROUP BY\n    p.ProductID,\n    p.Name,\n    ps.Name\nORDER BY TotalQuantitySold\
+    \ DESC"
+  explanation: The top 5 best-selling products by quantity sold span four different
+    subcategories. The **AWC Logo Cap** (Caps) leads with 8,311 units sold, followed
+    by the **Water Bottle - 30 oz.** (Bottles and Cages) at 6,815 units. Helmets appear
+    twice in the top 5, with the Sport-100 Helmet in Blue (6,743 units) and Black
+    (6,532 units) ranking 3rd and 5th respectively, while the Long-Sleeve Logo Jersey,
+    L (Jerseys) rounds out the list at 6,592 units. Overall, accessories and apparel
+    dominate the best-sellers, with no bikes or major equipment featuring in the top
+    5.
+  layout: table
+  charts:
+  - name: Chart 1
+    type: bar
+    x: ProductID
+    y:
+    - TotalQuantitySold
+    pinned: false
+  - name: Chart 2
+    type: line
+    x: ProductID
+    y:
+    - TotalQuantitySold
+    pinned: false
+  - name: Chart 3
+    type: bar
+    x: ProductID
+    y:
+    - TotalQuantitySold
+    pinned: false
+  id: fb26dc9f7b364de39e8ea228aa4a2a0b
+  created_at: 1783886149.3669462
+  updated_at: 1783886622.510397

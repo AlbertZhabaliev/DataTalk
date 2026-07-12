@@ -1,0 +1,23 @@
+fastapi>=0.139,<1
+uvicorn[standard]>=0.30
+pydantic>=2.11,<3
+pydantic-settings>=2.3,<3
+langchain==0.2.*
+langchain-openai==0.1.*
+langchain-anthropic==0.1.*
+langchain-community==0.2.*
+sqlglot==25.0.*
+SQLAlchemy==2.0.*
+# DB drivers (install only what you need)
+clickhouse-sqlalchemy==0.3.*
+psycopg[binary]==3.1.*
+pyodbc==5.1.*
+oracledb==2.3.*
+# Voice (optional)
+faster-whisper==1.0.*
+# Misc
+jinja2==3.1.*
+PyYAML==6.0.*
+python-multipart>=0.0.31
+# Frontend (NiceGUI)
+nicegui==3.14.*

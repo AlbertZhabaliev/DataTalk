@@ -1,0 +1,24 @@
+llm:
+  provider: openai            # openai | anthropic | ollama
+  model: gpt-4o
+  api_key: ''                 # set via Settings UI or here
+  base_url: ''
+  temperature: 0
+  system_prompt: ''
+defaults:
+  max_rows: 1000
+  query_timeout_seconds: 10
+  ask_layout: compact         # full | compact
+databases:
+  - name: mydb
+    engine: postgres          # postgres | mssql | clickhouse | oracle
+    host: localhost
+    port: 5432
+    database: mydb
+    username: user
+    password: ''
+    windows_auth: false
+    trust_server_certificate: true
+    read_only: true
+glossary:
+  databases: {}
